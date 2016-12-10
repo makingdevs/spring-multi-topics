@@ -28,7 +28,7 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#/">Home</a></li>
+          <li><a href="#/">Home</a></li>
           <li><a href="#/employees">Employees</a></li>
           <li><a href="#/employees/new">New</a></li>
         </ul>
@@ -37,6 +37,28 @@
 
       <div class="row" id="main">
       </div>
+
+      <script id="home-template" type="text/x-handlebars-template">
+        <h1> Hola inmundo! </h1>
+      </script>
+
+      <script id="employees-template" type="text/x-handlebars-template">
+        <h2>Employee list</h2>
+        <ul>
+          {{#each employees}}
+            <li><a href="#/employee/{{id}}">{{fullName}}</a></li>
+          {{/each}}
+        </ul>
+      </script>
+
+      <script id="new-employee-template" type="text/x-handlebars-template">
+        <h2>New employee</h2>
+        <form>
+          <legend>Data for employee</legend>
+          <fieldset>
+          </fieldset>
+        </form>
+      </script>
 
 
       <div class="footer">
@@ -59,6 +81,7 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/momentjs/moment.js"></script>
     <script src="/bower_components/director/build/director.js"></script>
+    <script src="/bower_components/handlebars/handlebars.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -78,6 +101,7 @@
         <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
+        <script src="scripts/models.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

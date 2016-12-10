@@ -53,5 +53,6 @@ project(":web"){
   dependencies {
     compile project(":persistenceAndServices")
     compile 'org.springframework.data:spring-data-rest-webmvc:2.5.5.RELEASE'
+    compile 'org.springframework.data:spring-data-rest-hal-browser:2.5.5.RELEASE'
   }
 }

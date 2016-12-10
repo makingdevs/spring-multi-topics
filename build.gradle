@@ -47,7 +47,7 @@ project(":business"){
   }
 }
 
-project(":web"){
+project(":webservices"){
   apply plugin:'war'
   apply plugin: 'org.akhikhl.gretty'
   dependencies {

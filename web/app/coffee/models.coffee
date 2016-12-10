@@ -3,4 +3,4 @@ class Employee
     { @id, @firstName, @lastName, @birthDate, @hireDate, @gender } = options
 
   fullName : ->
-    "#{firstName} #{lastName}"
+    "#{@firstName} #{@lastName}"

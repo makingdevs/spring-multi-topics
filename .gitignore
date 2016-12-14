@@ -4,3 +4,4 @@
 **/build/
 **/logs/
 **/*.iml
+web/app/scripts/**/*.js

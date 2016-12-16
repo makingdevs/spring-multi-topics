@@ -43,12 +43,44 @@
       </script>
 
       <script id="employees-template" type="text/x-handlebars-template">
-        <h2>Employee list</h2>
-        <ul>
-          {{#each employees}}
-            <li><a href="#/employee/{{id}}">{{fullName}}</a></li>
+        <h2>Employee list</h3>
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>Full Name</th>
+              <th>Birth Date</th>
+              <th>Hire Date</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+          {{#each employeesList}}
+            <tr>
+              <td>{{fullName}}</td>
+              <td>{{birthDate}}</td>
+              <td>{{hireDate}}</td>
+              <td>{{gender}}</td>
+            </tr>
+          </tbody>
           {{/each}}
-        </ul>
+        </table>
+        <nav aria-label="...">
+          <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
+          </ul>
+        </nav>
+        <h4>Page info</h4>
+        <dl>
+        <dt>Number</dt>
+        <dd>{{pageInfo.number}}</dd>
+        <dt>Size</dt>
+        <dd>{{pageInfo.size}}</dd>
+        <dt>Total elements</dt>
+        <dd>{{pageInfo.totalElements}}</dd>
+        <dt>Total pages</dt>
+        <dd>{{pageInfo.totalPages}}</dd>
+        </dl>
       </script>
 
       <script id="new-employee-template" type="text/x-handlebars-template">

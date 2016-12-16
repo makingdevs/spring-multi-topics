@@ -15,14 +15,14 @@ class EmployeeController
   constructor: ->
 
   list: ->
-    many_employees =
-      'employees': [
-        new Employee(id:1, firstName:"Juan",lastName:"Zuñiga"),
-        new Employee(id:2, firstName:"Rock",lastName:"Mtz"),
-        new Employee(id:3, firstName:"Carlo",lastName:"Padilla")
-      ]
-    html = ViewResolver.mergeViewWithModel "#employees-template", many_employees
-    $("#main").html html
+    $.get("http://localhost:8080/webservices/employees").done(
+      (result) ->
+        employeesPage = new EmployeesPage(result._embedded.employees, result._links, result.page)
+        html = ViewResolver.mergeViewWithModel "#employees-template", employeesPage
+        $("#main").html html
+    ).fail( (error) ->
+      console.log error
+    )
   create: ->
     html = ViewResolver.mergeViewWithModel "#new-employee-template", {}
     $("#main").html html

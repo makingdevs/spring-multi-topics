@@ -28,3 +28,5 @@ class EmployeeController
     $("#main").html html
   show: (id) ->
     console.log "employee - show #{id}"
+  save: ->
+    console.log "Saving employee"

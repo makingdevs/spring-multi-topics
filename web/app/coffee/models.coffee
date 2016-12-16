@@ -4,3 +4,8 @@ class Employee
 
   fullName : ->
     "#{@firstName} #{@lastName}"
+
+class EmployeesPage
+  constructor: (employeesList, @links, @pageInfo) ->
+    @employeesList =(new Employee(e) for e in employeesList)
+

@@ -7,8 +7,9 @@ class App
     @routes =
       '/': @homeController.index
       '/employees': @employeeController.list
-      '/employees/new' : @employeeController.create
-      '/employee/:id' : @employeeController.show
+      '/employees/:id' : @employeeController.show
+      '/employee/new' : @employeeController.create
+      '/employee/save' : @employeeController.save
     @urlMappings()
 
   urlMappings: ->

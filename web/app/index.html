@@ -30,7 +30,7 @@
         <ul class="nav nav-pills pull-right">
           <li><a href="#/">Home</a></li>
           <li><a href="#/employees">Employees</a></li>
-          <li><a href="#/employees/new">New</a></li>
+          <li><a href="#/employee/new">New</a></li>
         </ul>
         <h3 class="text-muted">web</h3>
       </div>
@@ -50,6 +50,7 @@
               <th>Full Name</th>
               <th>Birth Date</th>
               <th>Hire Date</th>
+              <th>Time working</th>
               <th>Gender</th>
             </tr>
           </thead>
@@ -57,8 +58,9 @@
           {{#each employeesList}}
             <tr>
               <td>{{fullName}}</td>
-              <td>{{birthDate}}</td>
-              <td>{{hireDate}}</td>
+              <td>{{birthDateWithFormat}}</td>
+              <td>{{hireDateWithFormat}}</td>
+              <td>{{timeWorking}}</td>
               <td>{{gender}}</td>
             </tr>
           </tbody>
@@ -85,13 +87,47 @@
 
       <script id="new-employee-template" type="text/x-handlebars-template">
         <h2>New employee</h2>
-        <form>
+        <form action="#/employee/save" method="get">
           <legend>Data for employee</legend>
           <fieldset>
+
+            <div class="form-group">
+              <label class="control-label" for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" aria-describedby="helpBlock2">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" aria-describedby="helpBlock2">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="birthDate">Birth Date</label>
+              <input type="text" class="form-control" id="birthDate" aria-describedby="helpBlock2">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="bornDate">Born date</label>
+              <input type="text" class="form-control" id="bornDate" aria-describedby="helpBlock2">
+            </div>
+
+            <div class="radio">
+              <label>
+                <input type="radio" name="gender" id="gender1" value="M">
+                Male
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="gender" id="gender2" value="F">
+                Female
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save employee</button>
+
           </fieldset>
         </form>
       </script>
 
+      <hr>
 
       <div class="footer">
         <p>♥ from the Yeoman team</p>

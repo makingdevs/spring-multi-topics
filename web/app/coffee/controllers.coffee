@@ -42,6 +42,23 @@ class EmployeeController
           validators:
             notEmpty:
               message : "Rellena este campo..."
+            stringLength:
+              min: 4
+              max: 40
+              message: "Pon tu nombre Papu!!!"
+        lastName:
+          validators:
+            notEmpty:
+              message : "Pon tu lastname"
+            stringLength:
+              min: 4
+              max: 40
+              message: "Pon tu apallido Papawh!!!"
+        gender:
+          validators:
+            notEmpty:
+              message : "Pon tu genero quimera!!!!"
+
     ).on('submit', (e) ->
       console.log "Enviando forma"
       e.preventDefault()

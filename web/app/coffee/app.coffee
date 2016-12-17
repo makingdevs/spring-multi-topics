@@ -7,6 +7,7 @@ class App
     @routes =
       '/': @homeController.index
       '/employees': @employeeController.list
+      '/employees/page/:page' : @employeeController.list
       '/employees/:id' : @employeeController.show
       '/employee/new' : @employeeController.create
       '/employee/save' : @employeeController.save

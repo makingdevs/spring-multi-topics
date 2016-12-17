@@ -20,7 +20,7 @@ class RestWebAppInitializer implements WebApplicationInitializer {
     @Override
     void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext()
-        ctx.register(AppConfig)
+        ctx.register(AppConfig, WebConfig)
 
         servletContext.addListener(new ContextLoaderListener(ctx))
 

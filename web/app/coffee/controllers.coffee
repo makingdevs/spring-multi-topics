@@ -13,16 +13,19 @@ class HomeController
 
 class EmployeeController
   constructor: ->
+    @employeeManager = EmployeeManager.getInstance()
 
-  list: (page = 0) ->
-    $.get("http://localhost:8080/webservices/employees?page=#{page}&size=10").done(
-      (result) ->
-        employeesPage = new EmployeesPage(result._embedded.employees, result._links, result.page)
-        html = ViewResolver.mergeViewWithModel "#employees-template", employeesPage
-        $("#main").html html
-    ).fail( (error) ->
-      console.log error
-    )
+  list: (page = 0, size = 10) =>
+    onSuccess = (result) ->
+      employeesPage = new EmployeesPage(result._embedded.employees, result._links, result.page)
+      html = ViewResolver.mergeViewWithModel "#employees-template", employeesPage
+      $("#main").html html
+    onError = () -> console.log "Errorz"
+    params =
+      page : page
+      size : size
+    @employeeManager.list(params, onSuccess, onError)
+
   create: =>
     html = ViewResolver.mergeViewWithModel "#new-employee-template", {}
     $("#main").html html
@@ -75,3 +78,4 @@ class EmployeeController
       gender : $("#gender").val()
     employee = new Employee(data)
     console.log employee
+    #$.post("url", e).done()

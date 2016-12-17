@@ -2,6 +2,9 @@ class Employee
   constructor: (options) ->
     { @id, @firstName, @lastName, @birthDate, @hireDate, @gender } = options
 
+  dataForSend: ->
+    { @id, @firstName, @lastName, @birthDate, @hireDate, @gender }
+    
   fullName : ->
     "#{@firstName} #{@lastName}"
 

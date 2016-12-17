@@ -23,10 +23,10 @@ class EmployeeManager
     queryParams = ("#{k}=#{v}" for k,v of employee).join('&')
     $.ajax({
       url: "#{baseUrl}#{entityUrl}"
-      type: 'POST',
-      data: JSON.stringify(employee.dataForSend()),
-      contentType: 'application/json; charset=utf-8',
-      dataType: 'json',
-      async: false,
+      type: 'POST'
+      data: JSON.stringify(employee.dataForSend())
+      contentType: 'application/json; charset=utf-8'
+      dataType: 'json'
+      async: false
       success: success
     })

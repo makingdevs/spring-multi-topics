@@ -19,4 +19,14 @@ class EmployeeManager
 
   save: (employee, success, error) ->
     console.log employee
-    $.post("#{baseUrl}#{entityUrl}", JSON.stringify(employee))
+    console.log employee.dataForSend()
+    queryParams = ("#{k}=#{v}" for k,v of employee).join('&')
+    $.ajax({
+      url: "#{baseUrl}#{entityUrl}"
+      type: 'POST',
+      data: JSON.stringify(employee.dataForSend()),
+      contentType: 'application/json; charset=utf-8',
+      dataType: 'json',
+      async: false,
+      success: success
+    })

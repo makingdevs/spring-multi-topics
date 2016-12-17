@@ -69,7 +69,7 @@ class EmployeeController
 
   show: (id) ->
     console.log "employee - show #{id}"
-  save: ->
+  save: =>
     data =
       firstName : $("#firstName").val()
       lastName : $("#lastName").val()
@@ -77,5 +77,6 @@ class EmployeeController
       hireDate : $("#hireDate").val()
       gender : $("#gender").val()
     employee = new Employee(data)
-    console.log employee
-    #$.post("url", e).done()
+    onSuccess = (result) -> console.log "Guardado con exito"
+    onError = () -> console.log "Errorz"
+    @employeeManager.save(employee, onSuccess, onError)

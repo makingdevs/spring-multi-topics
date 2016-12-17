@@ -17,4 +17,6 @@ class EmployeeManager
     queryParams = ("#{k}=#{v}" for k,v of params).join('&')
     $.get("#{baseUrl}#{entityUrl}?#{queryParams}").done(onSuccess).fail(onError)
 
-  save: (employee) ->
+  save: (employee, success, error) ->
+    console.log employee
+    $.post("#{baseUrl}#{entityUrl}", JSON.stringify(employee))

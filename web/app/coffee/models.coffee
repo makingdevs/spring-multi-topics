@@ -17,4 +17,13 @@ class Employee
 class EmployeesPage
   constructor: (employeesList, @links, @pageInfo) ->
     @employeesList =(new Employee(e) for e in employeesList)
-
+    @pageInfo.previousPage =
+      if @pageInfo.number == 0
+        0
+      else
+        @pageInfo.number - 1
+    @pageInfo.nextPage =
+      if @pageInfo.number == @pageInfo.totalPages
+        @pageInfo.totalPages
+      else
+        @pageInfo.number + 1

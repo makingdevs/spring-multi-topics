@@ -24,7 +24,7 @@ class EmployeeController
     ).fail( (error) ->
       console.log error
     )
-  create: ->
+  create: =>
     html = ViewResolver.mergeViewWithModel "#new-employee-template", {}
     $("#main").html html
     $("form#employee").formValidation(
@@ -59,12 +59,10 @@ class EmployeeController
             notEmpty:
               message : "Pon tu genero quimera!!!!"
 
-    ).on('submit', (e) ->
-      console.log "Enviando forma"
-      e.preventDefault()
-    ).on('success.form.fv', (e) ->
+    ).on('success.form.fv', (e) =>
       console.log "Enviando forma estilo"
       e.preventDefault()
+      @save()
     )
 
   show: (id) ->

@@ -68,12 +68,14 @@
           </tbody>
           {{/each}}
         </table>
+
         <nav aria-label="...">
           <ul class="pager">
-            <li><a href="#">Previous</a></li>
-            <li><a href="#">Next</a></li>
+            <li><a href="#/employees/page/{{pageInfo.previousPage}}">Previous</a></li>
+            <li><a href="#/employees/page/{{pageInfo.nextPage}}">Next</a></li>
           </ul>
         </nav>
+
         <h4>Page info</h4>
         <dl>
         <dt>Number</dt>

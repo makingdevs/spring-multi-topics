@@ -15,7 +15,7 @@ class EmployeeController
   constructor: ->
 
   list: (page = 0) ->
-    $.get("http://localhost:8080/webservices/employees?page=#{page}").done(
+    $.get("http://localhost:8080/webservices/employees?page=#{page}&size=10").done(
       (result) ->
         employeesPage = new EmployeesPage(result._embedded.employees, result._links, result.page)
         html = ViewResolver.mergeViewWithModel "#employees-template", employeesPage

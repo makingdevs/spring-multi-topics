@@ -36,5 +36,5 @@ class Employee {
   Date hireDate
 
   @Enumerated(EnumType.STRING)
-  Gender gender
+  Gender gender = Gender.F
 }
